@@ -8,6 +8,7 @@ import dilukshan_logo from './../../public/assets/dilukshan_logo.png'
 import ThemeToggleButton from './ThemeToggleButton';
 import { Button } from './ui/button';
 import { FiGithub } from "react-icons/fi";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
 // Define navigation item structure with support for deeper nesting
 type NavItem = {
@@ -230,18 +231,10 @@ const Navbar: React.FC = () => {
           <Button variant="outline" size="icon" className='h-8 w-8 rounded-md'>
             <FiGithub className="absolute text-bold h-8 w-8" />
           </Button>
-          <Link
-            href="/pro"
-            className="hidden md:flex items-center bg-pink-500 text-white px-3 py-1.5 rounded-md font-medium hover:bg-pink-600"
-          >
-            <span className="mr-1">✨</span> React Flow Pro
-          </Link>
-          <Link
-            href="/pro"
-            className="md:hidden flex items-center bg-pink-500 text-white px-3 py-1.5 rounded-md font-medium hover:bg-pink-600"
-          >
-            <span className="mr-1">✨</span> Pro
-          </Link>
+          <Button variant="outline" className='bg-pink-500 hover:bg-blue-500 dark:bg-pink-500 dark:hover:bg-blue-500'>
+            Hire Me
+            <MdOutlineKeyboardDoubleArrowRight />
+          </Button>
           <button
             className="md:hidden p-2 text-gray-600 hover:text-gray-900"
             onClick={toggleMobileMenu}
