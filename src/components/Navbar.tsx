@@ -162,7 +162,9 @@ const Navbar: React.FC = () => {
             <div key={item.label} className="relative group">
               <button
                 onClick={() => toggleDropdown(item.label)}
-                className={`flex items-center px-3 py-2 text-sm font-medium hover:text-pink-500`}
+                className={`flex items-center px-3 py-2 text-sm font-medium hover:text-pink-500 ${
+                pathname === item.href? 'text-pink-500' : 'text-gray-700 dark:text-white'
+                }`}
               >
                 <Link href={item.href}>
                   {item.label}
@@ -236,7 +238,7 @@ const Navbar: React.FC = () => {
             <MdOutlineKeyboardDoubleArrowRight />
           </Button>
           <button
-            className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+            className="md:hidden p-2 text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
             onClick={toggleMobileMenu}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -254,7 +256,7 @@ const Navbar: React.FC = () => {
                   <Link
                     href={item.href}
                     className={`block px-3 py-2 text-base font-medium ${
-                      pathname?.startsWith(item.href) ? 'text-pink-500' : 'text-gray-700'
+                      pathname === item.href? 'text-pink-500' : 'text-gray-700 dark:text-white'
                     }`}
                   >
                     {item.label}
@@ -264,8 +266,8 @@ const Navbar: React.FC = () => {
                     <button
                       onClick={() => toggleDropdown(item.label)}
                       className={`flex w-full items-center justify-between px-3 py-2 text-base font-medium ${
-                        pathname?.startsWith(item.href) ? 'text-pink-500' : 'text-gray-700'
-                      }`}
+                      pathname === item.href? 'text-pink-500' : 'text-gray-700 dark:text-white'
+                    }`}
                     >
                       {item.label}
                       <ChevronDown
@@ -281,7 +283,8 @@ const Navbar: React.FC = () => {
                             {!child.children ? (
                               <Link
                                 href={child.href}
-                                className="block border-l-2 border-gray-200 pl-4 py-2 text-gray-600 hover:text-gray-900"
+                                className="block border-l-2 border-gray-200 pl-4 py-2 text-gray-600 hover:text-gray-900
+                                dark:text-gray-100 dark:hover:text-white"
                               >
                                 {child.label}
                               </Link>
@@ -289,7 +292,8 @@ const Navbar: React.FC = () => {
                               <>
                                 <button
                                   onClick={() => toggleSubMenu(child.label)}
-                                  className="flex w-full items-center justify-between border-l-2 border-gray-200 pl-4 py-2 text-gray-600 hover:text-gray-900"
+                                  className="flex w-full items-center justify-between border-l-2 border-gray-200 pl-4 py-2 text-gray-600 hover:text-gray-900
+                                  dark:text-gray-100 dark:hover:text-white"
                                 >
                                   {child.label}
                                   <ChevronDown
@@ -304,7 +308,8 @@ const Navbar: React.FC = () => {
                                       <Link
                                         key={subItem.label}
                                         href={subItem.href}
-                                        className="block border-l-2 border-gray-200 pl-4 py-2 text-gray-500 hover:text-gray-800"
+                                        className="block border-l-2 border-gray-200 pl-4 py-2 text-gray-500 hover:text-gray-800
+                                        dark:text-gray-100 dark:hover:text-white"
                                       >
                                         {subItem.label}
                                       </Link>
