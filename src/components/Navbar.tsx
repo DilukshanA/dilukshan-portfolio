@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, ChevronRight, Menu, Search, X, Github } from 'lucide-react';
 import dilukshan_logo from './../../public/assets/dilukshan_logo.png'
+import ThemeToggleButton from './ThemeToggleButton';
 
 // Define navigation item structure with support for deeper nesting
 type NavItem = {
@@ -21,8 +22,9 @@ type SidebarSection = {
 
 // Define main navigation items
 const navItems: NavItem[] = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '/#' },
   { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
   {
     label: 'Reference',
     href: '/reference',
@@ -137,7 +139,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="border-b border-gray-200 bg-white">
+    <nav className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 dark:bg-black dark:text-white bg-white/30 backdrop-blur-md">
       <div className="flex items-center justify-between px-4 py-2 md:px-6">
         {/* Logo */}
         <div className="flex items-center">
@@ -161,7 +163,10 @@ const Navbar: React.FC = () => {
                   pathname?.startsWith(item.href) ? 'text-pink-500' : 'text-gray-700'
                 }`}
               >
-                {item.label}
+                <Link href={item.href}>
+                  {item.label}
+                </Link>
+                
                 {item.children && (
                   <ChevronDown
                     className={`ml-1 h-4 w-4 transition-transform ${
@@ -221,6 +226,7 @@ const Navbar: React.FC = () => {
 
         {/* Right side items */}
         <div className="flex items-center space-x-2">
+          <ThemeToggleButton/>
           <button className="p-2 text-gray-600 hover:text-gray-900">
             <Search className="h-5 w-5" />
           </button>
