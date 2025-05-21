@@ -3,9 +3,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, ChevronRight, Menu, Search, X, Github } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, Search, X, Github, GithubIcon } from 'lucide-react';
 import dilukshan_logo from './../../public/assets/dilukshan_logo.png'
 import ThemeToggleButton from './ThemeToggleButton';
+import { Button } from './ui/button';
+import { FiGithub } from "react-icons/fi";
 
 // Define navigation item structure with support for deeper nesting
 type NavItem = {
@@ -22,14 +24,14 @@ type SidebarSection = {
 
 // Define main navigation items
 const navItems: NavItem[] = [
-  { label: 'Home', href: '/#' },
+  { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
   {
     label: 'Reference',
-    href: '/reference',
+    href: '#',
     children: [
-      { label: 'API Reference', href: '/reference/api' },
+      { label: 'API Reference', href: '/' },
       { label: '<ReactFlow />', href: '/reference/reactflow' },
       { label: '<ReactFlowProvider />', href: '/reference/reactflowprovider' },
       { 
@@ -139,12 +141,12 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 dark:bg-black dark:text-white bg-white/30 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 dark:bg-black dark:text-white bg-white/30 backdrop-blur-md">
       <div className="flex items-center justify-between px-4 py-2 md:px-6">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <span className="text-xl text-gray-700 font-semibold flex items-center">
+            <span className="text-xl text-black dark:text-white font-bold flex items-center">
               <div className="mr-2">
                 <img src={dilukshan_logo.src} alt="Logo" className="h-8 w-8" />
               </div>
@@ -159,9 +161,7 @@ const Navbar: React.FC = () => {
             <div key={item.label} className="relative group">
               <button
                 onClick={() => toggleDropdown(item.label)}
-                className={`flex items-center px-3 py-2 text-sm font-medium hover:text-pink-500 ${
-                  pathname?.startsWith(item.href) ? 'text-pink-500' : 'text-gray-700'
-                }`}
+                className={`flex items-center px-3 py-2 text-sm font-medium hover:text-pink-500`}
               >
                 <Link href={item.href}>
                   {item.label}
@@ -227,12 +227,9 @@ const Navbar: React.FC = () => {
         {/* Right side items */}
         <div className="flex items-center space-x-2">
           <ThemeToggleButton/>
-          <button className="p-2 text-gray-600 hover:text-gray-900">
-            <Search className="h-5 w-5" />
-          </button>
-          <button className="hidden md:block p-2 text-gray-600 hover:text-gray-900">
-            <Github className="h-5 w-5" />
-          </button>
+          <Button variant="outline" size="icon" className='h-8 w-8 rounded-md'>
+            <FiGithub className="absolute text-bold h-8 w-8" />
+          </Button>
           <Link
             href="/pro"
             className="hidden md:flex items-center bg-pink-500 text-white px-3 py-1.5 rounded-md font-medium hover:bg-pink-600"
