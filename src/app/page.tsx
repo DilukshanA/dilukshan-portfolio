@@ -1,17 +1,18 @@
 import { GlobeDemo } from '@/components/GlobeDemo'
 import { GoogleGeminiEffectDemo } from '@/components/GoogleGeminiEffectDemo'
+import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
+import BgBlurEffect from '@/components/ui/BgBlurEffect'
+import BgBlurEffect2 from '@/components/ui/BgBlurEffect2'
 import React from 'react'
 
 const Main = () => {
   return (
     <div>
       <Navbar/>
-      <div className='text-gray-500 mt-20'>
-        <h1>Home</h1>
-        {/* <GlobeDemo/> */}
-      </div>
-
+      <Hero/>
+      {/* <BgBlurEffect/> */}
+      <BgBlurEffect2/>
     </div>
   )
 }

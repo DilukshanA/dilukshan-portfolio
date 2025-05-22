@@ -142,7 +142,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 dark:bg-black dark:text-white bg-white/30 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 dark:text-white bg-white/30 backdrop-blur-md dark:bg-black/30">
       <div className="flex items-center justify-between px-4 py-2 md:px-6">
         {/* Logo */}
         <div className="flex items-center">
