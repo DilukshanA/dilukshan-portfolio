@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, ChevronRight, Menu, Search, X, Github, GithubIcon } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 import dilukshan_logo from './../../public/assets/dilukshan_logo.png'
 import ThemeToggleButton from './ThemeToggleButton';
 import { Button } from './ui/button';
