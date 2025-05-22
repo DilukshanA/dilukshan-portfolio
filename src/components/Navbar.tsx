@@ -18,10 +18,10 @@ type NavItem = {
 };
 
 // Define sidebar navigation that can appear in dropdowns
-type SidebarSection = {
-  title: string;
-  items: NavItem[];
-};
+// type SidebarSection = {
+//   title: string;
+//   items: NavItem[];
+// };
 
 // Define main navigation items
 const navItems: NavItem[] = [
